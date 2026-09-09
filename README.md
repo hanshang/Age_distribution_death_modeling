@@ -82,7 +82,31 @@ re-running against a later vintage will not reproduce the published numbers.
 
 ---
 
-## 2. Repository layout
+## 3. Requirements
+
+**R ≥ 4.1** (the native pipe `|>` is used in `win_heatmap.R`).
+
+CRAN packages: `ftsa`, `LaplacesDemon`, `flexmix`, `psych`, `easyCODA`, `DescTools`, `xtable`,
+`transport`, `compositions`, `HMDHFDplus`, `zCompositions`, `forecast`, `MCS`, `dplyr`, `ggplot2`
+(≥ 3.4), `tidyr` (≥ 1.3).
+
+Not on CRAN or requiring a note:
+
+- **`hdftsa`** — provides `hdfpca()` and the `Two_way_mean()` / `Two_way_mean_residuals()` FANOVA
+  helpers. **[Add the install line and the version used.]**
+- **`MCS`** — has been archived on CRAN in the past; check it installs before relying on it.
+
+`auxiliary/load_packages.R` currently loads several packages that are never used (`doMC`,
+`MortalityLaws`, `RColorBrewer`, `rlist`, `demography`, `vars`, `Compositional`, `tidyverse`) and
+omits two that are (`forecast`, `MCS`). `doMC` is Unix-only and is the sole thing preventing the
+code from running on Windows; nothing in the repository uses it.
+
+**Record your session.** Add the output of `sessionInfo()`, or an `renv.lock`, to the repository —
+`auto.arima()` and `ets()` results are sensitive to the `forecast` package version.
+
+---
+
+## 4. Repository layout
 
 ```
 .
