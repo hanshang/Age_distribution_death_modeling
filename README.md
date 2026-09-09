@@ -1,6 +1,6 @@
 # Forecasting Japanese subnational life-table death counts
 
-Replication code for *[Forecasting multiple density-valued time series]* by [Han Lin Shang].
+Replication code for *Forecasting multiple density-valued time series* by Han Lin Shang.
 
 The code forecasts age-specific life-table death counts for Japan — nationally and for all 47
 prefectures, both sexes — by mapping the death-count densities into an unconstrained space,
