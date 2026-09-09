@@ -14,7 +14,8 @@
 pkgs <- c("ftsa", "LaplacesDemon", "flexmix", "psych", "easyCODA", "doMC",
           "MortalityLaws", "DescTools", "xtable", "tidyverse", "ggplot2",
           "RColorBrewer", "rlist", "hdftsa", "demography", "vars", "transport",
-          "Compositional", "compositions", "dplyr", "HMDHFDplus", "zCompositions")
+          "Compositional", "compositions", "dplyr", "HMDHFDplus", "zCompositions",
+          "MCS", "tidyr", "grid")
 
 # doMC does not exist for Windows
 if (.Platform$OS.type == "windows") {
