@@ -61,6 +61,27 @@ and the three gap models appear once each — giving the eleven columns of every
 This is where the recurring index arithmetic comes from: `21 - horizon`, `22 - horizon`,
 `n_year - 21 + ij` and `n_year - 42 + ij` appear throughout and all encode the split above.
 
+---
+
+## 2. Data
+
+| | |
+|---|---|
+| Source | Japanese Mortality Database (JMD), IPSS — <https://www.ipss.go.jp/p-toukei/JMD/> |
+| Accessed via | `HMDHFDplus::readJMDweb()` |
+| Credentials | **None required.** (Unlike HMD, JMD is open.) |
+| Series | `fltper_1x1`, `mltper_1x1`; only the `qx` column is used |
+| Units | Prefecture codes `"01"`–`"47"`; `"00"` = national |
+| Coverage | Ages 0–110, years 1973–2024 (Okinawa has no data before 1973, so all prefectures are truncated to that window) |
+| Derivation | Life-table death counts are reconstructed by iterating a radix of 10<sup>5</sup> through `qx` |
+| Accessed on | **[fill in the download date]** |
+
+`read_data.R` performs the download (94 sequential HTTP requests) and builds every object the
+model scripts consume. Because JMD is revised and extended annually, **record the access date** —
+re-running against a later vintage will not reproduce the published numbers.
+
+---
+
 ## 2. Repository layout
 
 ```
