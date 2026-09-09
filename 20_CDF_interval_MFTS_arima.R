@@ -1,8 +1,3 @@
-# load R packages
-
-source("load_packages.R")
-source("auxiliary_interval.R")
-
 ###############################
 ## level of significance = 0.8
 ###############################

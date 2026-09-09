@@ -2,11 +2,6 @@
 # interval forecasts based on gender gap
 #########################################
 
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-load("read_data.RData")
-source("auxiliary_interval.R")
-source("load_packages.R")
-
 # state_index: region index
 # year_index: year index
 # horizon: forecast horizon

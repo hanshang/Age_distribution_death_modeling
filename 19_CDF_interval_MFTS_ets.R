@@ -1,9 +1,3 @@
-# load R packages
-
-source("load_packages.R")
-source("auxiliary_point.R")
-source("auxiliary_interval.R")
-
 # fdata_F: female data (n by p data matrix)
 # fdata_M: male data
 # fore_method: transformation

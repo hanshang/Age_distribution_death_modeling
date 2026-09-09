@@ -1,13 +1,3 @@
-##################
-# load R packages
-##################
-
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-load("read_data.RData")
-source("load_packages.R")
-source("auxiliary_interval.R")
-source("hdfpca_fun.R")
-
 ###############################
 ## level of significance = 0.8
 ###############################

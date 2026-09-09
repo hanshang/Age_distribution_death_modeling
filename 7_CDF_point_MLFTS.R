@@ -2,11 +2,6 @@
 # Multilevel functional time series
 ####################################
 
-# setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-setwd("/Users/mq20178348/Dropbox/Todos/FANOVA_FFM_CDF/code")
-source("load_packages.R")
-source("auxiliary_point.R")
-
 #########
 ## ARIMA
 #########

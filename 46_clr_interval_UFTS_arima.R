@@ -1,8 +1,3 @@
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-source("load_packages.R")
-source("auxiliary_point.R")
-source("auxiliary_interval.R")
-
 #########
 ### clr
 #########

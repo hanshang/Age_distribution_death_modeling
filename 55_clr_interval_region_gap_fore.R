@@ -1,8 +1,3 @@
-load("read_data.RData")
-source("auxiliary_point.R")
-source("auxiliary_interval.R")
-source("load_packages.R")
-
 # state_index: region index
 # year_index: year index
 # horizon: forecast horizon

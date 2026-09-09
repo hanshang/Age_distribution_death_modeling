@@ -2,8 +2,6 @@
 # model confidence set
 #######################
 
-require(MCS)
-
 ## CDF transformation
 
 # KLD

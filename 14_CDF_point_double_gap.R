@@ -1,7 +1,3 @@
-setwd("~/Dropbox/Todos/FANOVA_FFM_CDF/code")
-load("read_data.RData")
-source("load_packages.R")
-
 # N_F_CDF: national female CDF
 # subnational_region_F_diff_CDF: regional gap = subnational - national female CDF
 # subnational_gender_diff_CDF: gender gap = subnational female - subnational male CDF

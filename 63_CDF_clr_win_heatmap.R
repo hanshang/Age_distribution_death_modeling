@@ -11,14 +11,7 @@
 ## Outputs, as two standalone figures:
 ##   Fig_win_heatmap.pdf  rank of every method in every scenario
 ##   Fig_win_counts.pdf   how often each method ranks first / second-third
-##
-## Requires: ggplot2, dplyr, tidyr
 ## ---------------------------------------------------------------------------
-
-library(ggplot2)
-library(dplyr)
-library(tidyr)
-library(grid)   # for unit()
 
 ## ---- 1. Method labels, in the column order used in Tables 1-9 --------------
 

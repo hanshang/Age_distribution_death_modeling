@@ -1,10 +1,3 @@
-# load R packages
-
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-source("load_packages.R")
-source("auxiliary_point.R")
-source("auxiliary_interval.R")
-
 #####################################
 # train_set: 1:11 (1973:1983)
 # validation_set: 12:32 (1984:2004)

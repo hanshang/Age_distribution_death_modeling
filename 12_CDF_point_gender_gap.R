@@ -1,9 +1,3 @@
-setwd("~/Dropbox/Todos/FANOVA_FFM_CDF/code")
-load("read_data.RData")
-
-setwd("~/Dropbox/Todos/FANOVA_FFM_CDF/code/CDF/point_forecast/Gap_modeling")
-source("gender_gap_fun.R")
-
 ##########################
 # F & M (subnational)
 # years from 1973 to 2024

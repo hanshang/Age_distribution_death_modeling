@@ -1,11 +1,3 @@
-##################
-# load R packages
-##################
-
-source("auxiliary_interval.R")
-source("load_packages.R")
-
-
 ########
 ### CDF
 ########

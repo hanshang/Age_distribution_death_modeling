@@ -2,10 +2,6 @@
 # model HDFTS of CDFs
 ######################
 
-# load R package
-
-source("load_packages.R")
-
 # read Japanese Subnational Human Mortality Data
 
 state = c("Hokkaido", "Aomori", "Iwate", "Miyagi", "Akita", "Yamagata", "Fukushima","Ibaraki", "Tochigi", 

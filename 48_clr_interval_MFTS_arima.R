@@ -1,11 +1,6 @@
-# load R packages
-
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-source("load_packages.R")
-source("auxiliary_point.R")
-source("auxiliary_interval.R")
-
+###############################
 ## level of significance = 0.8
+###############################
 
 # EVR
 

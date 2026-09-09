@@ -2,9 +2,6 @@
 # Multivariate functional time series
 ######################################
 
-source("load_packages.R")
-source("auxiliary_point.R")
-
 ## ARIMA
 
 point_fore_subnational_err_MFTS_F_EVR_ARIMA   = point_fore_subnational_err_MFTS_M_EVR_ARIMA   =

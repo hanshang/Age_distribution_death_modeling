@@ -1,9 +1,3 @@
-# load R packages
-
-source("load_packages.R")
-source("auxiliary_interval.R")
-source("hdfpca_fun.R")
-
 # fdata_F: female data
 # fdata_M: male data
 # horizon: forecast horizon

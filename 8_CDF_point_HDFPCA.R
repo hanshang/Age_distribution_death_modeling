@@ -3,10 +3,6 @@
 # transformation = "CDF"
 ###########################################################
 
-setwd("~/Dropbox/Todos/FANOVA_FFM_CDF/code")
-source("load_packages.R")
-source("hdfpca_fun.R")
-
 # first_order, K = 6 
 # second order, L = 2
 

@@ -1,16 +1,7 @@
-# set working directory
-
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-
-# load R packages
-
-source("load_packages.R")
-source("auxiliary_point.R")
-source("auxiliary_interval.R")
-
-###############
+#################
+# two-way FANOVA
 ## alpha = 0.2
-###############
+#################
 
 # fmethod = "ets"
 
