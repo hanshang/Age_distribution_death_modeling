@@ -8,7 +8,60 @@ fitting a functional time series model there, and mapping back. Two transformati
 forecasting methods are compared on point and interval forecast accuracy over horizons
 *h* = 1, …, 20.
 
-## 1. Repository layout
+## 1. Method in brief
+
+Life-table death counts *d<sub>x</sub>* form a density: they are non-negative and sum to the radix
+(10<sup>5</sup> here). Linear forecasting methods do not respect either constraint, so the counts
+are transformed first.
+
+**CDF transformation.** Form the cumulative distribution `F = cumsum(dx / 10^5)`, drop the last
+ordinate (*F*(110) = 1 by construction, and `logit(1) = Inf`), and apply `logit()`. Forecast in
+logit space, then `invlogit()`, re-append the 1, and `diff()` back to a density.
+
+**CLR transformation.** Treat each year's *d<sub>x</sub>* vector as a composition and apply the
+centred log-ratio transform, clr(*x*) = log *x* − mean(log *x*). Forecast in clr space and map
+back with `clrInv()`. Zeros must be replaced before taking logarithms.
+
+Within each transformation, the same five multi-population models plus three "gap" models are
+fitted:
+
+| Label | Model |
+|---|---|
+| UFTS | Univariate functional time series — one `ftsm` per prefecture per sex |
+| MFTS | Multivariate FTS — female and male curves stacked into one joint `ftsm` |
+| MLFTS | Multilevel FTS — a common component plus sex-specific residual components |
+| HDFPCA | High-dimensional functional PCA, two-stage (`hdftsa::hdfpca`) |
+| FANOVA+FFM | Two-way functional ANOVA plus a functional factor model on the residuals |
+| Gender gap | Forecast the female curve and the male − female gap, reconstruct the male curve |
+| Region gap | Forecast the national curve and the prefecture − national gap |
+| Double gap | National → region gap → gender gap, applied in sequence |
+
+Principal component scores are extrapolated with `ets()` or `auto.arima()`. The number of retained
+components is chosen either by an eigenvalue-ratio rule (`select_K`, reported as **EVR**) or fixed
+at **K = 6**. UFTS, MFTS and MLFTS appear in the results tables under both settings; HDFPCA, FANOVA
+and the three gap models appear once each — giving the eleven columns of every table.
+
+**Evaluation design.** With 52 years of data (1973–2024):
+
+```
+|<------- 11 years ------->|<------ 21 years ------>|<----- 20 years ----->|
+        initial training            validation               test
+          1973-1983                 1984-2004              2005-2024
+```
+
+- **Point accuracy** is computed on the test period with an expanding window: KLD, JSD,
+  Wasserstein *L*<sub>1</sub> and Wasserstein *L*<sub>2</sub> against the held-out
+  *d<sub>x</sub>*. Only KLD reaches the published tables.
+- **Interval accuracy** first uses the validation period to tune a scalar multiplier
+  `tune_para` such that the pointwise band
+  forecast ± `tune_para` × sd(validation residuals) attains nominal coverage; the tuned bands are
+  then scored on the test period with **ECP** (empirical coverage probability), **CPD**
+  (|ECP − nominal|) and **MIS** (mean interval / Winkler score), at nominal 80% and 95%.
+
+This is where the recurring index arithmetic comes from: `21 - horizon`, `22 - horizon`,
+`n_year - 21 + ij` and `n_year - 42 + ij` appear throughout and all encode the split above.
+
+## 2. Repository layout
 
 ```
 .
