@@ -1,6 +1,16 @@
 # Age distribution death modeling
 R code for modeling age distribution of deaths
 
+# Forecasting Japanese subnational life-table death counts
+
+Replication code for *[paper title]* by [authors].
+
+The code forecasts age-specific life-table death counts for Japan — nationally and for all 47
+prefectures, both sexes — by mapping the death-count densities into an unconstrained space,
+fitting a functional time series model there, and mapping back. Two transformations and eleven
+forecasting methods are compared on point and interval forecast accuracy over horizons
+*h* = 1, …, 20.
+
 ## 1. Repository layout
 
 ```
