@@ -74,7 +74,7 @@ This is where the recurring index arithmetic comes from: `21 - horizon`, `22 - h
 | Units | Prefecture codes `"01"`–`"47"`; `"00"` = national |
 | Coverage | Ages 0–110, years 1973–2024 (Okinawa has no data before 1973, so all prefectures are truncated to that window) |
 | Derivation | Life-table death counts are reconstructed by iterating a radix of 10<sup>5</sup> through `qx` |
-| Accessed on | **[fill in the download date]** |
+| Accessed on | **[4 August 2026]** |
 
 `read_data.R` performs the download (94 sequential HTTP requests) and builds every object the
 model scripts consume. Because JMD is revised and extended annually, **record the access date** —
