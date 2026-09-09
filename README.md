@@ -93,7 +93,7 @@ CRAN packages: `ftsa`, `LaplacesDemon`, `flexmix`, `psych`, `easyCODA`, `DescToo
 Not on CRAN or requiring a note:
 
 - **`hdftsa`** — provides `hdfpca()` and the `Two_way_mean()` / `Two_way_mean_residuals()` FANOVA
-  helpers. **[Add the install line and the version used.]**
+  helpers.
 - **`MCS`** — has been archived on CRAN in the past; check it installs before relying on it.
 
 `auxiliary/load_packages.R` currently loads several packages that are never used (`doMC`,
