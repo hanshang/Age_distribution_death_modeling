@@ -1,13 +1,3 @@
-# load R packages
-
-setwd("/Users/hanlinshang/Dropbox/Todos/FANOVA_FFM_CDF/code")
-source("load_packages.R")
-source("auxiliary_point.R")
-source("auxiliary_interval.R")
-
-# setwd("~/Dropbox/Todos/FANOVA_FFM_CDF/code/CDF/point_forecast/Gap_modeling")
-setwd("/Users/hanlinshang/Dropbox/Todos/FANOVA_FFM_CDF/code/CDF/point_forecast/Gap_modeling")
-
 # N_M_CDF: national male CDF
 # N_F_CDF: national female CDF
 # year_index: year index

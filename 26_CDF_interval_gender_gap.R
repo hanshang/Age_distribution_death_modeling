@@ -2,14 +2,6 @@
 # interval forecasts based on gender gap
 #########################################
 
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-load("read_data.RData")
-source("auxiliary_interval.R")
-source("load_packages.R")
-
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code/CDF/point_forecast/Gap_modeling")
-source("gender_gap_fun.R")
-
 # CDF_M_data: cumulative distribution function for male data
 # CDF_F_data: cumulative distribution function for female data
 # PDF_M_holdout_data: age distribution of male death counts

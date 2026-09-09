@@ -1,7 +1,6 @@
-setwd("~/Library/CloudStorage/Dropbox/Todos/FANOVA_FFM_CDF/code")
-load("read_data.RData")
-source("load_packages.R")
-source("auxiliary_interval.R")
+#########################
+# Double gap forecasting
+#########################
 
 double_gap_fore <- function(state_index, year_index, region_gap, gender_gap, N_F_CDF, fh, fmethod)
 {
