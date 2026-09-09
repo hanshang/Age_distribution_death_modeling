@@ -6,7 +6,7 @@ R code for modeling age distribution of deaths
 ```
 .
 ├── read_data.R                     download JMD, build all data objects (RUN FIRST)
-├── win_heatmap.R                   summary heat map across all tables
+├── CDF_clr_win_heatmap.R                   summary heat map across all tables
 │
 ├── auxiliary/                      shared function library
 │   ├── load_packages.R
@@ -24,7 +24,7 @@ R code for modeling age distribution of deaths
 │   │   ├── Multi-population_modeling/   {UFTS,MFTS,MLFTS,HDFPCA,FANOVA}/
 │   │   ├── Gap_modelling/               *_interval.R
 │   │   └── summary_interval_{arima,ets}_{ECP,CPD,score}.R
-│   └── MCS_CDF.R                   model confidence sets (CDF and CLR together)
+│   └── CDF_clr_MCS.R                   model confidence sets (CDF and CLR together)
 │
 └── CLR/                            CLR (compositional) transformation — mirrors CDF/
     ├── point_forecasts/
