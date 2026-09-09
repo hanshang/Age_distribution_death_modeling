@@ -138,3 +138,55 @@ code from running on Windows; nothing in the repository uses it.
 
 Every `.R` file carries a header block stating its purpose, what must already be in the workspace,
 what it produces, and which output it feeds.
+
+## 5. Run order
+
+There is no driver script. Scripts communicate through the global environment rather than through
+files, so **order matters and is not expressed anywhere in the code**. Run in this order, in one
+continuous session:
+
+```r
+# --- setup ---------------------------------------------------------------
+source("auxiliary/load_packages.R")
+source("read_data.R")                 # ~94 HTTP requests; slow
+source("auxiliary/auxiliary_point.R")
+source("auxiliary/hdfpca_fun.R")
+source("auxiliary/auxiliary_interval.R")
+
+# --- CDF point forecasts -------------------------------------------------
+source("CDF/point_forecast/Multi-population_modeling/CDF_UFTS.R")   # also defines
+                                        #   point_fore_national_cdf(), which the CLR tree needs
+source("CDF/point_forecast/Multi-population_modeling/CDF_MFTS.R")
+source("CDF/point_forecast/Multi-population_modeling/CDF_MLFTS.R")
+source("CDF/point_forecast/Multi-population_modeling/CDF_HDFPCA.R")
+source("CDF/point_forecast/Multi-population_modeling/CDF_FANOVA.R")
+source("CDF/point_forecast/Gap_modeling/gender_gap_fun.R")
+source("CDF/point_forecast/Gap_modeling/gender_gap.R")
+source("CDF/point_forecast/Gap_modeling/region_gap.R")
+source("CDF/point_forecast/Gap_modeling/double_gap.R")
+source("CDF/point_forecast/summary_point_arima.R")
+source("CDF/point_forecast/summary_point_ets.R")
+
+# --- CDF interval forecasts ----------------------------------------------
+#   NOTE: within MFTS and HDFPCA the *_ets and *_arima files are not
+#   interchangeable in order — see Known issues.
+source("CDF/interval_forecast/Multi-population_modeling/UFTS/CDF_UFTS_interval_ets.R")
+source("CDF/interval_forecast/Multi-population_modeling/UFTS/CDF_UFTS_interval_arima.R")
+source("CDF/interval_forecast/Multi-population_modeling/MFTS/CDF_MFTS_interval_ets.R")
+source("CDF/interval_forecast/Multi-population_modeling/MFTS/CDF_MFTS_interval_arima.R")
+source("CDF/interval_forecast/Multi-population_modeling/MLFTS/CDF_MLFTS_interval_ets.R")
+source("CDF/interval_forecast/Multi-population_modeling/MLFTS/CDF_MLFTS_interval_arima.R")
+source("CDF/interval_forecast/Multi-population_modeling/HDFPCA/CDF_HDFPCA_interval_arima.R")
+source("CDF/interval_forecast/Multi-population_modeling/HDFPCA/CDF_HDFPCA_interval_ets.R")
+source("CDF/interval_forecast/Multi-population_modeling/FANOVA/CDF_FANOVA_interval.R")
+source("CDF/interval_forecast/Gap_modelling/gender_gap_interval.R")
+source("CDF/interval_forecast/Gap_modelling/region_gap_interval.R")
+source("CDF/interval_forecast/Gap_modelling/double_gap_interval.R")
+for (f in Sys.glob("CDF/interval_forecast/summary_interval_*.R")) source(f)
+
+# --- CLR: the same sequence under CLR/point_forecasts and CLR/interval_forecasts
+
+# --- cross-transformation results ----------------------------------------
+source("CDF_clr_win_heatmap.R")
+source("CDF_clr_MCS.R")               
+```
