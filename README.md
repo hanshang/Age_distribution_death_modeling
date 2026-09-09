@@ -190,3 +190,22 @@ for (f in Sys.glob("CDF/interval_forecast/summary_interval_*.R")) source(f)
 source("CDF_clr_win_heatmap.R")
 source("CDF_clr_MCS.R")               
 ```
+## 6. Outputs
+
+**Figures** (written to the working directory as PDF):
+
+| File | Content |
+|---|---|
+| `Japan_{female,male}_LTDC.pdf` | rainbow plot of national life-table death counts |
+| `Japan_{female,male}_CDF.pdf` | rainbow plot of the national CDFs |
+| `Japan_gender_gap.pdf` | male − female CDF gap |
+| `KLD_{F,M}_{ARIMA,ETS}_{CDF,CLR}.pdf` | point-accuracy boxplots across the 11 methods |
+| `{CDF,clr}_{F,M}_{ARIMA,ETS}_ECP[_95].pdf` | interval-coverage boxplots |
+| `Fig_win_heatmap.pdf`, `Fig_win_counts.pdf`, `Fig_win_counts_by.pdf` | summary heat maps |
+
+**Tables** are printed as LaTeX by `xtable()` in the `summary_*` scripts; **model confidence sets**
+are printed by `MCS_CDF.R`.
+
+> `savepdf()` and `savefig()` are called throughout but are **not defined anywhere in this
+> repository** and are not exported by any loaded package. Every figure script fails at its first
+> plot until these helpers are added to `auxiliary/`.
