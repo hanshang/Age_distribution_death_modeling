@@ -135,7 +135,7 @@ MFTS_model <- function(data_input, ncomp_method, fh, fore_method)
   eigen_value = eigen(cov(t(comb_object)))$values
   if(ncomp_method == "EVR")
   {
-    ncomp = select_K(tau = 10^-2, eigenvalue = eigen_value)
+    ncomp = select_K(tau = 10^-3, eigenvalue = eigen_value)
   }
   else if(ncomp_method == "provide")
   {
